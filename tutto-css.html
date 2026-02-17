@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tutoriel HTML: classes utilitaires et CSS externe</title>
+		<link rel="stylesheet" href="tutto.css">
+		<style>
+			/* Classes utilitaires pour simuler un style "direct" via class="..." */
+			/* Aligne le texte au centre */
+			.text-center { text-align: center; }
+			/* Taille de texte tres grande */
+			.text-4xl { font-size: 2.5rem; line-height: 1.1; }
+			/* Bord completement arrondi */
+			.rounded-full { border-radius: 9999px; }
+			/* Arrondi moyen */
+			.rounded-lg { border-radius: 18px; }
+			/* Fond degrade chaud */
+			.bg-sun { background: linear-gradient(135deg, #ffb347, #ff7f50); }
+			/* Fond clair */
+			.bg-cream { background: #fff3e6; }
+			/* Padding large */
+			.p-6 { padding: 1.5rem; }
+			/* Padding vertical */
+			.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+			/* Padding horizontal */
+			.px-4 { padding-left: 1rem; padding-right: 1rem; }
+			/* Marge tout autour */
+			.m-4 { margin: 1rem; }
+			/* Marge en haut */
+			.mt-6 { margin-top: 1.5rem; }
+			/* Marge a gauche */
+			.ml-10 { margin-left: 2.5rem; }
+			/* Ombre douce */
+			.shadow-soft { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18); }
+			/* Texte blanc */
+			.text-white { color: #ffffff; }
+			/* Texte bleu */
+			.text-blue { color: #2f5cff; }
+			/* Texte rouge */
+			.text-red { color: #d64545; }
+			/* Espacement entre lettres */
+			.tracking-wide { letter-spacing: 0.08em; }
+			/* Met le texte en majuscules */
+			.uppercase { text-transform: uppercase; }
+			/* Texte gras */
+			.font-bold { font-weight: 700; }
+			/* Texte semi-gras */
+			.font-semibold { font-weight: 600; }
+			/* Bordure fine */
+			.border { border: 1px solid #10212b; }
+			/* Bordure plus epaisse */
+			.border-2 { border-width: 2px; }
+			/* Bordure en pointilles */
+			.border-dashed { border-style: dashed; }
+		</style>
+	</head>
+	<body>
+		<div class="hero">
+			<div class="container">
+				<p class="kicker">Mini-tutoriel</p>
+				<h1>HTML + CSS: deux approches, meme rendu</h1>
+				<p class="lead">
+					A gauche: classes utilitaires directement dans le HTML. A droite: une seule classe
+					avec un style defini dans un fichier CSS externe.
+				</p>
+			</div>
+		</div>
+
+		<div class="container">
+			<section class="grid">
+				<!-- Version 1: utilitaires directement dans le HTML -->
+				<div class="text-center text-4xl rounded-full bg-sun p-6 shadow-soft text-white tracking-wide uppercase">
+					Hello classe
+				</div>
+				<!-- Version 2: meme rendu via une seule classe dans le CSS externe -->
+				<div class="card">
+					Hello classe
+				</div>
+			</section>
+
+			<section class="grid mt-6">
+				<!-- Utilitaires: padding, margin, couleur, bordure, gras -->
+				<div class="bg-cream rounded-lg px-4 py-2 m-4 ml-10 border border-2 border-dashed text-center">
+					<p class="font-bold text-blue">Message affirmatif</p>
+					<p class="font-semibold text-red">Je peux y arriver, pas a pas.</p>
+				</div>
+				<!-- Meme rendu via une classe unique definie dans tutto.css -->
+				<div class="panel">
+					<p class="panel-title">Message affirmatif</p>
+					<p class="panel-subtitle">Je peux y arriver, pas a pas.</p>
+				</div>
+			</section>
+
+			<section class="explain">
+				<h2>Objectif pedagogique</h2>
+				<p>
+					Les deux blocs ont le meme style visuel. Le premier le decrit avec plusieurs classes
+					dans le HTML. Le second utilise une seule classe ("card") dont les regles sont dans
+					le fichier CSS externe.
+				</p>
+				<p>
+					On montre aussi le padding, margin, ml-10, font-bold, font-semibold, text-color et border.
+				</p>
+			</section>
+		</div>
+	</body>
+</html>
