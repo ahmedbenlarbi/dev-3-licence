@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<title>Mon Portfolio Composants - Tailwind</title>
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+	<div id="navbar-component"></div>
+
+	<main>
+		<div id="about-component"></div>
+		<div id="contact-component"></div>
+	</main>
+
+	<div id="footer-component"></div>
+
+	<script>
+		const components = [
+			{ id: "navbar-component", file: "navbar.html" },
+			{ id: "about-component", file: "about.html" },
+			{ id: "contact-component", file: "contact.html" },
+			{ id: "footer-component", file: "footer.html" }
+		];
+
+		async function loadComponent(targetId, filePath) {
+			const target = document.getElementById(targetId);
+			if (!target) {
+				return;
+			}
+
+			try {
+				const response = await fetch(filePath);
+				if (!response.ok) {
+					throw new Error(`Erreur de chargement: ${filePath}`);
+				}
+
+				target.innerHTML = await response.text();
+			} catch (error) {
+				target.innerHTML = `<div class="m-6 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">Impossible de charger ${filePath}. Lance la page avec un serveur local (ex: Live Server).</div>`;
+				console.error(error);
+			}
+		}
+
+		Promise.all(components.map(component => loadComponent(component.id, component.file)));
+	</script>
+
+</body>
+
+</html>
